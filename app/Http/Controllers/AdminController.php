@@ -56,13 +56,13 @@ class AdminController extends Controller
             if ($request->hasFile('photo')) {
                 // Delete the existing photo if it exists
                 $existingPhoto = Auth::user()->photo;
-                if ($existingPhoto && Storage::exists('files/user/' . $existingPhoto)) {
-                    Storage::delete('files/user/' . $existingPhoto);
+                if ($existingPhoto && Storage::disk('public')->exists('files/user/' . $existingPhoto)) {
+                    Storage::disk('public')->delete('files/user/' . $existingPhoto);
                 }
     
                 // Upload the new photo to storage folder
                 $filename = 'photo_' . time() . '.' . $request->photo->extension();
-                $request->photo->storeAs('files/user', $filename);
+                $request->photo->storeAs('files/user', $filename, 'public');
                 $data['photo'] = $filename;
             }
             $data['status'] = '1';

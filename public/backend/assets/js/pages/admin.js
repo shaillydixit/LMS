@@ -2,7 +2,6 @@ $(document).ready(function () {
     "use strict";
     var pageForm = $("#admin_form");
     if (pageForm.length) {
-        // Check if jQuery Validation Plugin is loaded
         if (typeof pageForm.validate === "function") {
             pageForm.validate({
                 rules: {
@@ -55,12 +54,11 @@ $(document).ready(function () {
             success: function (response) {
                 var obj = JSON.parse(JSON.stringify(response));
                 if (obj.res == "3") {
-                    window.location.reload(true);
-                    show_toastr("success", "Data Updated Successfully.", "User");
+                    show_toastr("success", "Data Updated Successfully.", "Admin");
                 } else if (obj.res == "2") {
-                    show_toastr("info", "Data Already Exist.", "User");
+                    show_toastr("info", "User Already Exist.", "Admin");
                 } else if (obj.res == "0") {
-                    show_toastr("error", "Something is wrong.", "User");
+                    show_toastr("error", "Something is wrong.", "Admin");
                 }
             },
         });

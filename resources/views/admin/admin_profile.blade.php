@@ -34,7 +34,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="d-flex flex-column align-items-center text-center">
-                                            <img src="{{ (!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg')}}"
+                                        <img src="{{ (!empty($profileData->photo)) ? url('/storage/files/user/'.$profileData->photo) : url('upload/no_image.jpg')}}"
                                                 alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
                                             <div class="mt-3">
                                                 <h4>{{ $profileData->name }}</h4>
@@ -131,7 +131,7 @@
                                                 </div>
                                                 <div class="col-sm-9 text-secondary">
                                                     <img id="showImage"
-                                                        src="{{ (!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg')}}"
+                                                        src="{{ (!empty($profileData->photo)) ? url('/storage/files/user/'.$profileData->photo) : url('upload/no_image.jpg')}}"
                                                         alt="Admin" class="rounded-circle p-1 bg-primary" width="80">
                                                 </div>
                                             </div>
@@ -158,6 +158,8 @@
     @include('elements.footer')
     @include('elements.bottom_js')
     <script src="{{ asset('backend/assets/js/pages/admin.js?v='.time()) }}"></script>
+    <script src="{{ asset('backend/assets/js/pages/custom.js?v='.time()) }}"></script>
+
     </div>
 </body>
 <script type="text/javascript">

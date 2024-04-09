@@ -24,6 +24,10 @@
 	<link rel="stylesheet" href="{{asset('backend/assets/css/dark-theme.css')}}"/>
 	<link rel="stylesheet" href="{{asset('backend/assets/css/semi-dark.css')}}"/>
 	<link rel="stylesheet" href="{{asset('backend/assets/css/header-colors.css')}}"/>
-	<title>Rocker - Bootstrap 5 Admin Dashboard Template</title>
+
+	<link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/toastr.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('backend/assets/css/toastr.css')}}">
+
+	<title>Learning Management System</title>
 </head>
 

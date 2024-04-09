@@ -16,6 +16,10 @@
 	<script src="{{asset('backend/assets/js/index.js')}}"></script>
 	<!--app JS-->
 	<script src="{{asset('backend/assets/js/app.js')}}"></script>
+
+	<script type="text/javascript" src="{{asset('backend/assets/js/toastr.js')}}"></script>
+	<script type="text/javascript" src="{{asset('backend/assets/js/toastr.min.js')}}"></script>
+
 	<script>
 		new PerfectScrollbar(".app-container")
 	</script>
@@ -38,3 +42,5 @@
 	</script>
 	<!--app JS-->
 	<script src="{{asset('backend/assets/js/app.js')}}"></script>
+
+	
