@@ -44,4 +44,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public static function check_users($data, $user_id)
+    {
+        $users = User::where('status', '=', '1')
+            ->where('email', '=', $data['email'])
+            ->where('id', '!=', $user_id)
+            ->first();
+        return $users;
+    }
 }

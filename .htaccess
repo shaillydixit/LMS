@@ -1,0 +1,37 @@
+Options -MultiViews -Indexes
+RewriteEngine On
+# Handle Authorization Header
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+
+# Redirect Trailing Slashes If Not A Folder...
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [L,R=301] 
+
+# Handle Front Controller...
+RewriteCond %{REQUEST_URI} !(\.css|\.eot|\.ttf|\.woff|\.woff2|\.js|\.png|\.jpg|\.jpeg|\.svg|\.gif|\.ico|\.pdf|\.doc|\.docx|\.mp4|robots\.txt)$ [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^ index.php [L]
+
+ 
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteCond %{REQUEST_URI} !^/public/
+
+RewriteRule ^(backend|css|js|images|img|upload|media|assets|files)/(.*)$ public/$1/$2 [L,NC]
+AddType application/vnd.openxmlformats-officedocument.wordprocessingml.document docx
+
+RewriteRule ^\.env$ - [R=404,L,NC]
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "*"
+</IfModule>
+    
