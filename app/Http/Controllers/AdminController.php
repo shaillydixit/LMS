@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
@@ -82,4 +83,27 @@ class AdminController extends Controller
     }
     
 
+    public function AdminChangePassword(Request $request)
+    {
+        $id = Auth::user()->id;
+        $profileData = User::find($id);
+        return view('admin.admin_change_password',compact('profileData'));
+    }
+
+    public function AdminPasswordUpdate(Request $request)
+	{
+		if (!Hash::check($request->old_password, auth()->user()->password)) {
+			$row['res'] = '2';
+		} else {
+			$update = User::whereId(auth()->user()->id)->update([
+				'password' => Hash::make($request->new_password)
+			]);
+			if ($update) {
+				$row['res'] = '1';
+			} else {
+				$row['res'] = '0';
+			}
+		}
+		return $row;
+	}
 }
