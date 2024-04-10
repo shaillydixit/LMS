@@ -34,7 +34,7 @@
                                 <div class="card-body">
                                     <div class="d-flex flex-column align-items-center text-center">
                                         <img src="{{ (!empty($profileData->photo)) ? url('/storage/files/user/'.$profileData->photo) : url('upload/no_image.jpg')}}"
-                                            alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+                                            alt="Instructor" class="rounded-circle p-1 bg-primary" width="110">
                                         <div class="mt-3">
                                             <h4>{{ $profileData->name }}</h4>
                                             <p class="text-secondary mb-1">{{ $profileData->username }}</p>
@@ -67,7 +67,7 @@
                         <div class="col-lg-8">
                             <div class="card">
 
-                                <form id="update_password_form" name="update_password_form">
+                                <form id="instructor_update_password_form" name="instructor_update_password_form">
                                     <div class="card-body">
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
@@ -112,7 +112,7 @@
 
 
 
-                                                    <a type="button" class="btn btn-primary" id="submit_password_btn">Save Changes</a>
+                                                    <a type="button" class="btn btn-primary" id="instructor_submit_password_btn">Save Changes</a>
 
                                             </div>
                                         </div>
@@ -132,7 +132,7 @@
 
         @include('elements.footer')
         @include('elements.bottom_js')
-        <script src="{{ asset('backend/assets/js/pages/admin.js?v='.time()) }}"></script>
+        <script src="{{ asset('backend/assets/js/pages/instructor.js?v='.time()) }}"></script>
         <script src="{{ asset('backend/assets/js/pages/custom.js?v='.time()) }}"></script>
 
     </div>

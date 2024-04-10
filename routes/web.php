@@ -30,9 +30,15 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
     Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     Route::post('/admin/password/update', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
 });
+Route::get('/instructor/login',[InstructorController::class, 'instructorLogin'])->name('instructor.login');
 
 Route::middleware(['auth', 'roles:instructor'])->group(function(){
     Route::get('/instructor/dashboard',[InstructorController::class, 'InstructorDashboard'])->name('instructor.dashboard');
+    Route::get('/instructor/logout',[InstructorController::class, 'InstructorLogout'])->name('instructor.logout');
+    Route::get('/instructor/profile', [InstructorController::class, 'InstructorProfile'])->name('instructor.profile');
+    Route::post('/instructor/profile/update', [InstructorController::class, 'InstructorProfileUpdate'])->name('instructor.profile.update');
+    Route::get('/instructor/change/password', [InstructorController::class, 'InstructorChangePassword'])->name('instructor.change.password');
+    Route::post('/instructor/password/update', [InstructorController::class, 'InstructorPasswordUpdate'])->name('instructor.password.update');
 
 });
 // Route::get('/user/dashboard',[UserController::class, 'UserDashboard'])->name('user.dashboard');
