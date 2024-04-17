@@ -24,3 +24,19 @@ function show_toastr(type, message, title) {
         toastr.info(message, title);
     }
 }
+
+function block_page() {
+    $.blockUI({
+        message: '<div class="spinner-border text-white" role="status"></div>',
+        css: {
+            backgroundColor: "transparent",
+            border: "0",
+        },
+        overlayCSS: {
+            opacity: 0.5,
+        },
+    });
+}
+function unblock_page() {
+    $.unblockUI();
+}

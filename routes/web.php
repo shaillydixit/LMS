@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -33,6 +34,14 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
     Route::post('/admin/profile/update', [AdminController::class, 'AdminProfileUpdate'])->name('admin.profile.update');
     Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
     Route::post('/admin/password/update', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
+
+
+    Route::get('/category', [CategoryController::class, 'Index'])->name('category');
+    Route::get('/add-category', [CategoryController::class, 'AddCategory'])->name('add.category');
+    Route::post('/ajax-manage-category', [CategoryController::class, 'ManageCategory']);
+    Route::get('/fetch-category', [CategoryController::class, 'FetchCategory']);
+    Route::get('/edit-category/{id}', [CategoryController::class, 'EditCategory'])->name('edit.category');
+    Route::post('/delete-category', [CategoryController::class, 'DeleteCategory']);
 });
 Route::get('/instructor/login',[InstructorController::class, 'instructorLogin'])->name('instructor.login');
 
