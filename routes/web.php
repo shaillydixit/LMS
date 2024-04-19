@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,14 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
     Route::get('/fetch-category', [CategoryController::class, 'FetchCategory']);
     Route::get('/edit-category/{id}', [CategoryController::class, 'EditCategory'])->name('edit.category');
     Route::post('/delete-category', [CategoryController::class, 'DeleteCategory']);
+
+    Route::get('/subcategory', [SubcategoryController::class, 'Index'])->name('subcategory');
+    Route::get('/add-subcategory', [SubcategoryController::class, 'AddSubcategory'])->name('add.subcategory');
+    Route::post('/ajax-manage-subcategory', [SubcategoryController::class, 'ManageSubcategory']);
+    Route::get('/fetch-subcategory', [SubcategoryController::class, 'FetchSubcategory']);
+    Route::get('/edit-subcategory/{id}', [SubcategoryController::class, 'EditSubcategory'])->name('edit.subcategory');
+    Route::post('/delete-subcategory', [SubcategoryController::class, 'DeleteSubcategory']);
+
 });
 Route::get('/instructor/login',[InstructorController::class, 'instructorLogin'])->name('instructor.login');
 

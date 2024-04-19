@@ -13,11 +13,11 @@ class Category extends Model
 
     public static function check_category($data,$category_id)
 	{
-		 $companies = DB::table('categories') 
+		 $category = DB::table('categories') 
 					->where('status', '=', '1')
 					->where('category_name', '=', $data['category_name'])
 					->where('id', '!=', $category_id)
 				 	->first();
-		return $companies;		
+		return $category;		
 	}
 }

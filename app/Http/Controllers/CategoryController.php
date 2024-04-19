@@ -56,7 +56,6 @@ class CategoryController extends Controller
 
     public function AddCategory()
     {
-        $categoryData = '';
         return view('category.add_category');
     }
 
